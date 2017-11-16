@@ -11,17 +11,32 @@
             color: #BBBBBB;
         }
         
-        top {
+        #top {
             width: auto;
             height: 50px;
-            background: #888888;
+            background-color: #888;
             margin: 0px;
             padding: 0px;
+            text-align: center;
         }
 
     </style>
     <script>
+        $(document).ready(function () {
+            time();
+        });
         
+        function time() {
+            var ntime = new Date();
+            var time = new Date(2017, 10, 16, 18, 00, 00);
+            
+            var mInt = Math.floor((time.getTime() - ntime.getTime())/1000/60);
+            var sInt = 60-ntime.getSeconds();
+            $("#now").text(ntime);
+            $("#tttt").text(mInt + "분 " + sInt +"초");
+            
+            setTimeout("time()", 300);
+        }
     </script>
 </head>
 
@@ -137,10 +152,11 @@
     </script>
     <div id="page">
         <div id="top">
-
+            <span id="top" style="font-size: 30px;">123</span>
         </div>
         <div id="mid">
-
+            <h3 id="now"></h3>
+            <h3 id="tttt"></h3>
         </div>
     </div>
 </body>
